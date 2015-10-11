@@ -15,6 +15,9 @@
 		09BEB3F31BC8F559002D9AC6 /* CHTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEB3F21BC8F559002D9AC6 /* CHTransitionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		09BEB3F51BC90719002D9AC6 /* CHTransitionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEB3F41BC90719002D9AC6 /* CHTransitionLayout.swift */; settings = {ASSET_TAGS = (); }; };
 		09BEB3F71BC915EC002D9AC6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BEB3F61BC915EC002D9AC6 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		18BCB8CB1BCA87BB00BD8635 /* CHStickyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BCB8CA1BCA87BB00BD8635 /* CHStickyHeaderLayout.swift */; settings = {ASSET_TAGS = (); }; };
+		18BCB8CD1BCA971600BD8635 /* CHCollectionViewSmallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BCB8CC1BCA971600BD8635 /* CHCollectionViewSmallLayout.swift */; settings = {ASSET_TAGS = (); }; };
+		18BCB8CF1BCA995600BD8635 /* HACollectionViewLargeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BCB8CE1BCA995600BD8635 /* HACollectionViewLargeLayout.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		09BEB3F21BC8F559002D9AC6 /* CHTransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTransitionViewController.swift; sourceTree = "<group>"; };
 		09BEB3F41BC90719002D9AC6 /* CHTransitionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTransitionLayout.swift; sourceTree = "<group>"; };
 		09BEB3F61BC915EC002D9AC6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		18BCB8CA1BCA87BB00BD8635 /* CHStickyHeaderLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHStickyHeaderLayout.swift; sourceTree = "<group>"; };
+		18BCB8CC1BCA971600BD8635 /* CHCollectionViewSmallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHCollectionViewSmallLayout.swift; sourceTree = "<group>"; };
+		18BCB8CE1BCA995600BD8635 /* HACollectionViewLargeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HACollectionViewLargeLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				09BEB3F11BC8F530002D9AC6 /* Transition */,
+				18BCB8C91BCA878F00BD8635 /* Custom Layout */,
 				09BEB3DB1BC8F121002D9AC6 /* AppDelegate.swift */,
 				09BEB3DD1BC8F121002D9AC6 /* ViewController.swift */,
 				09BEB3E21BC8F121002D9AC6 /* Assets.xcassets */,
@@ -79,6 +86,16 @@
 				09BEB3F41BC90719002D9AC6 /* CHTransitionLayout.swift */,
 			);
 			name = Transition;
+			sourceTree = "<group>";
+		};
+		18BCB8C91BCA878F00BD8635 /* Custom Layout */ = {
+			isa = PBXGroup;
+			children = (
+				18BCB8CA1BCA87BB00BD8635 /* CHStickyHeaderLayout.swift */,
+				18BCB8CC1BCA971600BD8635 /* CHCollectionViewSmallLayout.swift */,
+				18BCB8CE1BCA995600BD8635 /* HACollectionViewLargeLayout.swift */,
+			);
+			path = "Custom Layout";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,11 +168,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BCB8CD1BCA971600BD8635 /* CHCollectionViewSmallLayout.swift in Sources */,
 				09BEB3F31BC8F559002D9AC6 /* CHTransitionViewController.swift in Sources */,
 				09BEB3DE1BC8F121002D9AC6 /* ViewController.swift in Sources */,
+				18BCB8CB1BCA87BB00BD8635 /* CHStickyHeaderLayout.swift in Sources */,
 				09BEB3F01BC8F47C002D9AC6 /* CHNavigationViewController.swift in Sources */,
 				09BEB3DC1BC8F121002D9AC6 /* AppDelegate.swift in Sources */,
 				09BEB3F51BC90719002D9AC6 /* CHTransitionLayout.swift in Sources */,
+				18BCB8CF1BCA995600BD8635 /* HACollectionViewLargeLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
