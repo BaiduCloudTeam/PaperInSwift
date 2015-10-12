@@ -1,5 +1,5 @@
 //
-//  HACollectionViewLargeLayout.swift
+//  CHCollectionViewLargeLayout.swift
 //  PaperInSwift
 //
 //  Created by PeterFeng on 10/11/15.
@@ -7,7 +7,7 @@
 //  Hallelujah
 
 import UIKit
-class HACollectionViewLargeLayout: CHStickyHeaderLayout {
+class CHCollectionViewLargeLayout: CHStickyHeaderLayout {
     override init() {
         super.init()
         self.setup()
