@@ -10,7 +10,7 @@ import UIKit
 
 class CHPaperCollectionViewController:UICollectionViewController {
     var count = 0
-    var header:UIView?
+    var header:CHSectionHeader?
     
     func nextViewControllerAtPoint(point:CGPoint) ->UICollectionViewController {
         return self
@@ -21,7 +21,7 @@ class CHPaperCollectionViewController:UICollectionViewController {
         super.viewDidLoad()
         self.collectionView?.registerClass(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier:"CELL_ID")
         self.collectionView?.backgroundColor = UIColor.clearColor()
-        self.collectionView?.registerNib(UINib(nibName:"HASectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
+        self.collectionView?.registerNib(UINib(nibName:"CHSectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
         self.collectionView?.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         self.automaticallyAdjustsScrollViewInsets = false
         self.collectionView?.delaysContentTouches = false
@@ -63,12 +63,21 @@ class CHPaperCollectionViewController:UICollectionViewController {
         return transitionLayout
     }
     
-//    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-//        
-//        guard let viewHeader = self.header else {
-//            self.header = collectionView .dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
-//            //TO DO:
-//        }
-//        return self.header
-//    }
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        guard let _ = self.header else {
+            self.header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath) as? CHSectionHeader
+            let callback:(NSInteger) -> Void = {
+                [unowned self]
+                (arg) -> Void  in
+                self.count = Int(arc4random_uniform(20))+3;
+                self.collectionView?.scrollToItemAtIndexPath(NSIndexPath(forRow:0, inSection:0), atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
+                self.collectionView?.reloadSections(NSIndexSet(index: 0))
+            }
+            self.header?.didPageControllerChanged = callback
+            return self.header!
+        }
+        
+        return self.header!
+    }
 }
