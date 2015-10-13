@@ -28,7 +28,7 @@ class CHCollectionViewLargeLayout: CHStickyHeaderLayout {
         self.minimumLineSpacing = 4.0
         self.scrollDirection = .Horizontal
         self.headerReferenceSize = UIScreen.mainScreen().bounds.size
-        self.collectionView!.pagingEnabled = true
+        self.collectionView?.pagingEnabled = true
     }
     
     override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
