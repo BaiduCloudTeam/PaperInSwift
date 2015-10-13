@@ -63,12 +63,89 @@ public class CHTranstionController: NSObject, UIViewControllerAnimatedTransition
         })
     }
     
+    func updateWithProgress(progress:CGFloat, andOffset offset:UIOffset) {
+        if let _ = self.context {
+            if (((progress != self.transitionLayout!.transitionProgress) || !UIOffsetEqualToOffset(offset, self.transitionLayout!.offset!))) {
+                self.transitionLayout?.offset = offset
+                self.transitionLayout?.transitionProgress = progress
+                self.transitionLayout?.invalidateLayout()
+                self.context?.updateInteractiveTransition(progress)
+            }
+           
+        }
+    }
+    
+    func updateWithProgress(progress:CGFloat) {
+        if let _ = self.context {
+            if(((progress != self.transitionLayout!.transitionProgress))) {
+                self.transitionLayout?.transitionProgress = progress
+                self.transitionLayout?.invalidateLayout()
+                self.context?.updateInteractiveTransition(progress)
+            }
+            
+        }
+    }
+    
+    func endInteractionWithSuccess(success:Bool) {
+        guard let _ = self.context else {
+            self.hasActiveInteraction = false;
+            return
+        }
+        if ((self.transitionLayout!.transitionProgress > 0.1) && success) {
+            self.collectionView.finishInteractiveTransition()
+            self.context?.finishInteractiveTransition()
+        } else {
+            self.collectionView.cancelInteractiveTransition()
+            self.context?.cancelInteractiveTransition()
+        }
+    }
     // MARK: - CHControllerTransitionDelegate Method
     func interactionBeganAtPoint(origin : CGPoint) {
         
     }
     
-    func handlePinch(pinchGesture : UIPinchGestureRecognizer) {
+    func handlePinch(sender : UIPinchGestureRecognizer) {
+        if (sender.state == UIGestureRecognizerState.Ended) {
+            self.endInteractionWithSuccess(true)
+        } else if (sender.state ==  UIGestureRecognizerState.Cancelled) {
+            self.endInteractionWithSuccess(false)
+        } else if (sender.numberOfTouches() == 2) {
+            var point:CGPoint = CGPointZero
+            var point1:CGPoint = CGPointZero
+            var point2:CGPoint = CGPointZero
+            var distance:CGFloat = 0
+            
+            point1 = sender.locationOfTouch(0, inView: sender
+            .view)
+            point2 = sender.locationOfTouch(1, inView: sender
+            .view)
+            distance = sqrt((point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) * (point1.y - point2.y))
+        
+            point = sender.locationInView(sender.view)
+            if(sender.state == UIGestureRecognizerState.Began) {
+                if(!self.hasActiveInteraction) {
+                    self.initialPinchDistance = distance
+                    self.initialPinchPoint = point
+                    self.hasActiveInteraction = true
+                    self.delegate?.interactionBeganAtPoint(point)
+                }
+            }
+            if(self.hasActiveInteraction) {
+                if(sender.state == UIGestureRecognizerState.Changed) {
+                    let delta :CGFloat = distance - self.initialPinchDistance!
+                    let offsetX :CGFloat = point.x - (self.initialPinchPoint?.x)!
+                    let offsetY:CGFloat  = (point.y - self.initialPinchPoint!.y) + delta/CGFloat(M_PI);
+                    let offsetToUse:UIOffset = UIOffsetMake(offsetX, offsetY)
+                    var distanceDelta:CGFloat = distance - self.initialPinchDistance!
+                    if (self.navigationOperation == UINavigationControllerOperation.Pop) {
+                        distanceDelta = -distanceDelta
+                    }
+                    let progress:CGFloat = max(min(((distanceDelta + sender.velocity * CGFloat(M_PI)) / 250), 1.0), 0.0)
+                    self.updateWithProgress(progress, andOffset: offsetToUse)
+                }
+            }
+        
+        }
         
     }
     

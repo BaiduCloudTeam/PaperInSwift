@@ -27,18 +27,18 @@ public class CHNavigationViewController : UINavigationController, UINavigationCo
     }
     
     public func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
-        if viewController.isKindOfClass(CHSmallCollectionViewController) && transitionController != nil {
-            var collectionViewController = viewController as! CHSmallCollectionViewController
+        if viewController.isKindOfClass(CHSmallCollectionViewController) && transitionController == nil {
+            let collectionViewController = viewController as! CHSmallCollectionViewController
             transitionController = CHTranstionController(collectionView: collectionViewController.collectionView!)
             transitionController?.delegate = self
         }
     }
     
     override public func popViewControllerAnimated(animated: Bool) -> UIViewController? {
-        if (self.topViewController?.isKindOfClass(CHSmallCollectionViewController) != nil) {
+        if ((self.topViewController?.isKindOfClass(CHSmallCollectionViewController)) != nil) {
             transitionController = nil
         }
-        return self.popViewControllerAnimated(animated)
+        return super.popViewControllerAnimated(animated)
     }
     
     override public func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -46,8 +46,8 @@ public class CHNavigationViewController : UINavigationController, UINavigationCo
     }
     
     public func interactionBeganAtPoint(origin : CGPoint) {
-         let presentingViewController = self.topViewController as! CHSmallCollectionViewController
-         let presentedViewController = presentingViewController.nextViewControllerAtPoint(origin)
+         let presentingViewController = self.topViewController as? CHSmallCollectionViewController
+         let presentedViewController = presentingViewController?.nextViewControllerAtPoint(origin)
         if let vc : UIViewController? = presentedViewController {
              self.pushViewController(vc!, animated: true)
          }else {
