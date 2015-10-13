@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -17,26 +17,26 @@
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="crf-4I-a7y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="314"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image1" translatesAutoresizingMaskIntoConstraints="NO" id="TM8-It-buS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="TM8-It-buS" userLabel="Imag1">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="hTZ-hM-82H"/>
                                     <constraint firstAttribute="height" constant="314" id="lrH-Fp-qhs"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image1" translatesAutoresizingMaskIntoConstraints="NO" id="qBu-2s-Zxn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image2" translatesAutoresizingMaskIntoConstraints="NO" id="qBu-2s-Zxn" userLabel="Image2">
                                 <rect key="frame" x="320" y="0.0" width="320" height="314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="TTS-6K-8Ag"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image2" translatesAutoresizingMaskIntoConstraints="NO" id="HVN-aO-zVS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image3" translatesAutoresizingMaskIntoConstraints="NO" id="HVN-aO-zVS" userLabel="Image3">
                                 <rect key="frame" x="640" y="0.0" width="320" height="314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="ftx-mq-d2O"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image3" translatesAutoresizingMaskIntoConstraints="NO" id="Ef1-cH-QSw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image4" translatesAutoresizingMaskIntoConstraints="NO" id="Ef1-cH-QSw" userLabel="Image4">
                                 <rect key="frame" x="960" y="0.0" width="320" height="314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="O4J-11-dyr"/>
@@ -121,7 +121,6 @@
                 <outletCollection property="imageViews" destination="qBu-2s-Zxn" collectionClass="NSMutableArray" id="27H-E5-1qw"/>
                 <outletCollection property="imageViews" destination="HVN-aO-zVS" collectionClass="NSMutableArray" id="rT9-b0-VCy"/>
                 <outletCollection property="imageViews" destination="Ef1-cH-QSw" collectionClass="NSMutableArray" id="bh8-OM-OCZ"/>
-                <outletCollection property="imageViews" destination="TM8-It-buS" collectionClass="NSMutableArray" id="xmm-Yo-H9e"/>
                 <outletCollection property="imageViews" destination="qBu-2s-Zxn" collectionClass="NSMutableArray" id="RYr-CX-Xa7"/>
                 <outletCollection property="imageViews" destination="HVN-aO-zVS" collectionClass="NSMutableArray" id="kWH-iS-lPt"/>
                 <outletCollection property="imageViews" destination="Ef1-cH-QSw" collectionClass="NSMutableArray" id="3YW-7p-VLi"/>
@@ -129,8 +128,9 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Image1" width="320" height="320"/>
-        <image name="Image2" width="306" height="306"/>
-        <image name="Image3" width="306" height="306"/>
+        <image name="image1" width="306" height="306"/>
+        <image name="image2" width="320" height="320"/>
+        <image name="image3" width="306" height="306"/>
+        <image name="image4" width="306" height="306"/>
     </resources>
 </document>

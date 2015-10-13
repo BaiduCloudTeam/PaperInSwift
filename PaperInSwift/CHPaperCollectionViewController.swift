@@ -45,7 +45,7 @@ class CHPaperCollectionViewController:UICollectionViewController {
         cell.layer.cornerRadius = 4
         cell.clipsToBounds = true
         
-        let backgroundView:UIImageView = UIImageView(image: UIImage(named:"Cell"))
+        let backgroundView:UIImageView = UIImageView(image: UIImage(named:"fake-cell"))
         cell.backgroundView = backgroundView
         return cell
     }
